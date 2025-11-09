@@ -1,0 +1,1 @@
+web: serve -s dist/gerenciador-tarefas-web -l $PORT

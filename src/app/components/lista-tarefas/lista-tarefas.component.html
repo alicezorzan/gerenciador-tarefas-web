@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="cabecalho">
+    <span class="material-icons icon-alarm">alarm</span>
+    <h2>Painel de Tarefas</h2>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Descrição</th>
+        <th class="col-acoes">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (tarefa of tarefas; track tarefa.id) {
+      <tr
+        [ngClass]="{
+          'status-pendente': tarefa.concluida === false,
+          'status-concluido': tarefa.concluida === true
+        }"
+      >
+        <td>{{ tarefa.titulo }}</td>
+        <td>{{ tarefa.descricao }}</td>
+        <td class="col-acoes">
+          <div class="acoes">
+            <button (click)="concluir(tarefa)" title="Concluir">
+              <span class="material-icons">check_circle</span>
+            </button>
+            <button (click)="deletar(tarefa.id!)" title="Excluir">
+              <span class="material-icons">delete</span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+
+  <button (click)="abrirModalNova()" title="Adicionar Nova Tarefa" class="btn-add">
+    <span class="material-icons">add_circle</span>
+    Adicionar
+  </button>
+
+  @if (modalNovoAberto) {
+  <app-modal-criar-tarefa
+    (salvar)="criar($event)"
+    (fechar)="fecharModal()"
+  ></app-modal-criar-tarefa>
+  }
+</div>

@@ -1,0 +1,116 @@
+.modal-fundo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-conteudo {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  width: 500px;
+  max-width: 90%;
+  overflow: hidden;
+  animation: aparecer 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.modal-cabecalho {
+  background-color: #4682b4;
+  color: #fff;
+  padding: 1px 8px;
+  text-align: center;
+}
+
+.modal-corpo {
+  padding: 20px;
+}
+
+.modal-corpo label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #444;
+}
+
+.modal-corpo input,
+.modal-corpo textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  resize: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.modal-corpo input:focus,
+.modal-corpo textarea:focus {
+  border-color: #4682b4;
+  outline: none;
+}
+
+.botoes {
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.botoes button {
+  background-color: #5a9a8b;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  margin-top: 10px;
+
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.botoes button:not([disabled]):hover {
+  background-color: #4a8574;
+  transform: scale(1.05);
+}
+
+.botoes button[disabled] {
+  background-color: #888888;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.botoes button.botao-cancelar {
+  background-color: #888888;
+  color: white;
+}
+
+.botoes button.botao-cancelar:hover {
+  background-color: #666666;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

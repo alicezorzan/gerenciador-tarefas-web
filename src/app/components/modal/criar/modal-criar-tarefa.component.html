@@ -1,0 +1,20 @@
+<div class="modal-fundo">
+  <div class="modal-conteudo">
+    <div class="modal-cabecalho">
+      <h2>Nova Tarefa</h2>
+    </div>
+
+    <div class="modal-corpo">
+      <label>Título</label>
+      <input type="text" [(ngModel)]="tarefa.titulo" />
+
+      <label>Descrição</label>
+      <textarea [(ngModel)]="tarefa.descricao"></textarea>
+
+      <div class="botoes">
+        <button (click)="enviar()" [disabled]="!tarefa.titulo || !tarefa.descricao">Salvar</button>
+        <button class="botao-cancelar" (click)="fecharModal()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
